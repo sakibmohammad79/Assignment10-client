@@ -1,12 +1,38 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../provider/AuthProvider";
 
 const Login = () => {
+    const {logUser} = useContext(UserContext);
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null);
+
+
+    const handleLogIn = (event) =>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        logUser(email, password)
+        .then((result) => {
+            const logUser = result.user;
+            console.log(logUser);
+            form.reset();
+            setSuccess('User successfully login');
+            setError('');
+        })
+        .catch((error) => {
+            console.log(error.message);
+            setError(error.message);
+            setSuccess('');
+        })
+    }    
   return (
     <Container className="w-25 mx-auto my-5 border border-1 p-3 rounded">
       <h3 className="">LogIn Your Account</h3>
-      <Form>
+      <Form onSubmit={handleLogIn}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -33,8 +59,12 @@ const Login = () => {
         <Form.Text className="text-success">
           Don't have an account? <Link to="/register">Register</Link>
         </Form.Text>
-        <Form.Text className="text-success"></Form.Text>
-        <Form.Text className="text-danger"></Form.Text>
+        <Form.Text className="text-danger fw-bold">
+       <br></br>{error}
+      </Form.Text>
+      <Form.Text className="text-success fw-bold">
+        {success}
+      </Form.Text>
       </Form>
     </Container>
   );
