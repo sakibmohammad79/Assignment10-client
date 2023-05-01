@@ -3,10 +3,11 @@ import { useContext } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
-    const {registerUser} = useContext(UserContext);
+    const {registerUser, updateUser} = useContext(UserContext);
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
 
@@ -18,9 +19,6 @@ const Register = () => {
         const password = form.password.value;
         const photo = form.photo.value;
         
-        // if(password<6){
-        //    return setError('Password should be at least 6')
-        // }
         registerUser(email, password)
         .then(result =>{
             const registerUser = result.user;
@@ -32,9 +30,9 @@ const Register = () => {
         .catch(error =>{
             console.log(error.message);
             setError(error.message);
-        })
+            setSuccess('');
+        });
     }
-
   return (
     <Container className="w-25 mx-auto my-5 border border-1 p-3 rounded">
       <h3 className="">Register Your Account</h3>

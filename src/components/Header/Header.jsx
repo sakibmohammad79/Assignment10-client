@@ -3,6 +3,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import logo from '../../assets/logo.svg'
 import { Link } from "react-router-dom";
 import { UserContext } from "../../provider/AuthProvider";
+import { FaUser } from "react-icons/fa";
 
 const Header = () => {
     const {user, logOut} = useContext(UserContext);
@@ -24,15 +25,20 @@ const Header = () => {
                 <Link className="text-decoration-none text-white mx-3">Blog</Link>
                 <Link className="text-decoration-none text-white">About</Link>
             </Nav>
-            <Nav>
+            <Nav className="align-items-center">
               <Nav.Link href="#deets">
-                {user?.email}
+                {
+                    user && 
+                    <FaUser className="text-white" style={{height: '3rem'}}></FaUser>
+                }
               </Nav.Link>
+              <div className="ms-3">
               {
                 user ?
                 <Link><button onClick={handleLogOut} type="button" class="btn btn-warning">LogOut</button></Link>:
                 <Link to='/login'><button type="button" class="btn btn-warning">Login</button></Link>
               }
+              </div>
             </Nav>
           </Navbar.Collapse>
         </Container>
