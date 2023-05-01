@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../provider/AuthProvider";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
     const {logUser} = useContext(UserContext);
@@ -65,6 +66,10 @@ const Login = () => {
       <Form.Text className="text-success fw-bold">
         {success}
       </Form.Text>
+      <div className="d-flex pt-2 gap-2">
+      <Button variant="outline-warning"><FaGoogle></FaGoogle> Login With Google</Button>
+      <Button variant="outline-warning"><FaGithub></FaGithub> Login With Github</Button>
+      </div>
       </Form>
     </Container>
   );
