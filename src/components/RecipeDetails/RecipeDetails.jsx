@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const RecipeDetails = () => {
+    const [disabled1, setDisabled1] = useState(false);
+    const [disabled2, setDisabled2] = useState(false);
+    const [disabled3, setDisabled3] = useState(false);
+
+    const handleToast1= ()=>{
+        toast('Your Favourite Recipe Are Added!');
+        setDisabled1(true);
+    }
+    const handleToast2= ()=>{
+        toast('Your Favourite Recipe Are Added!');
+        setDisabled2(true);
+    }
+    const handleToast3= ()=>{
+        toast('Your Favourite Recipe Are Added!');
+        setDisabled1(true);
+    }
     const RecipeDetails = useLoaderData();
     console.log(RecipeDetails);
     const {picture,name,about,numberOfRecife,like,yearOfExperience,address,email,phone,recipeTypes1,recipeTypes2,recipeTypes3} = RecipeDetails;
@@ -19,6 +38,8 @@ const RecipeDetails = () => {
              <p className='mb-1'><span className='text-warning fs-4 fw-bolder'>People Likes:</span> <span className='fw-bold'>{like}k</span></p>
              <p className='mb-1'><span className='text-warning fs-4 fw-bolder'>Recipe Types:</span> <span className='fw-bold'>{numberOfRecife}</span></p>
             </div>
+
+
             <div >
                 <div className='d-flex align-items-center mb-3 border border-2 border-warning rounded'>
                     <img  style={{height: '230px', width: '150px'}} src={recipeTypes1[0].foodImage} alt="" />
@@ -31,7 +52,7 @@ const RecipeDetails = () => {
                     <Rating style={{ maxWidth: 120 }} value={recipeTypes1[0].rating}    readOnly/>
                     <span className='fw-bold fs-5 ps-1'>{recipeTypes1[0].rating}</span>
                     </small>
-                    <Button variant="warning"><span className='fw-bold text-white'>Favourite</span></Button>
+                    <Button onClick={handleToast1} disabled={disabled1} variant="warning"><span className='fw-bold text-white'>Favourite</span></Button>
                    </div>
                     </div>
                 </div>
@@ -47,7 +68,7 @@ const RecipeDetails = () => {
                     <Rating style={{ maxWidth: 120 }} value={recipeTypes2[0].rating}    readOnly/>
                     <span className='fw-bold fs-5 ps-1'>{recipeTypes2[0].rating}</span>
                     </small>
-                    <Button variant="warning"><span className='fw-bold text-white'>Favourite</span></Button>
+                    <Button onClick={handleToast2} disabled={disabled2} variant="warning"><span className='fw-bold text-white'>Favourite</span></Button>
                    </div>
                     </div>
                 </div>
@@ -63,11 +84,12 @@ const RecipeDetails = () => {
                     <Rating style={{ maxWidth: 120 }} value={recipeTypes3[0].rating}    readOnly/>
                     <span className='fw-bold fs-5 ps-1'>{recipeTypes3[0].rating}</span>
                     </small>
-                    <Button variant="warning"><span className='fw-bold text-white'>Favourite</span></Button>
+                    <Button onClick={handleToast3} disabled={disabled3} variant="warning"><span className='fw-bold text-white'>Favourite</span></Button>
                    </div>
                     </div>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
