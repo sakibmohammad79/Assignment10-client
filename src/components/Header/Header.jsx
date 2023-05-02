@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Image, Nav, Navbar, Tooltip } from "react-bootstrap";
 import logo from '../../assets/logo.svg'
 import { Link } from "react-router-dom";
 import { UserContext } from "../../provider/AuthProvider";
 import { FaUser } from "react-icons/fa";
+import image from '../../assets/close-up-portrait-curly-handsome-european-male.jpg'
 
 const Header = () => {
     const {user, logOut} = useContext(UserContext);
@@ -21,15 +22,18 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="m-auto">
-                <Link className="text-decoration-none text-white">Home</Link>
-                <Link className="text-decoration-none text-white mx-3">Blog</Link>
-                <Link className="text-decoration-none text-white">About</Link>
+                <Link to='/' className="text-decoration-none text-white">Home</Link>
+                <Link to='' className="text-decoration-none text-white mx-3">Blog</Link>
+                <Link to='' className="text-decoration-none text-white">About</Link>
             </Nav>
             <Nav className="align-items-center">
               <Nav.Link href="#deets">
                 {
                     user && 
-                    <FaUser className="text-white" style={{height: '3rem'}}></FaUser>
+                    // <FaUser  className="text-white" style={{height: '3rem'}}></FaUser>
+                    // <img style={{height: '40px'}} className="text-white" src={image} alt="" srcset="" />
+                    <Image src={image} style={{height: '50px', width: '50px'}} title={user.displayName}  roundedCircle />
+                    
                 }
               </Nav.Link>
               <div className="ms-3">

@@ -19,6 +19,7 @@ const Register = () => {
         const password = form.password.value;
         const photo = form.photo.value;
         
+
         registerUser(email, password)
         .then(result =>{
             const registerUser = result.user;
@@ -26,6 +27,7 @@ const Register = () => {
             form.reset();
             setError('');
             setSuccess('User are register successfully')
+            updateUserData(result.user, name, photo)
         })
         .catch(error =>{
             console.log(error.message);
@@ -33,6 +35,21 @@ const Register = () => {
             setSuccess('');
         });
     }
+
+    const updateUserData = (user, name, photo) => {
+      updateProfile(user, {
+        displayName: name,
+        photoURL: photo,
+      })
+      .then(() => {
+        console.log('user profile updated');
+        setError('');
+      })
+      .catch((error)=>{
+        setError(error.message);
+      })
+    }
+
   return (
     <Container className="w-25 mx-auto my-5 border border-1 p-3 rounded">
       <h3 className="">Register Your Account</h3>
@@ -75,7 +92,7 @@ const Register = () => {
             label="accept"
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="warning" type="submit">
           Register
         </Button>
       </Form>

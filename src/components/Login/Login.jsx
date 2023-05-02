@@ -5,7 +5,7 @@ import { UserContext } from "../../provider/AuthProvider";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-    const {logUser} = useContext(UserContext);
+    const {logUser, googleSignIn, githubSignIn} = useContext(UserContext);
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
 
@@ -29,7 +29,32 @@ const Login = () => {
             setError(error.message);
             setSuccess('');
         })
-    }    
+
+      }
+      const handleGoogleSignIn = () =>{
+        googleSignIn()
+        .then((result) => {
+          const signInUser = result.user;
+          console.log(signInUser);
+          setSuccess('User sign in by google successfully')
+        })
+        .catch((error) => {
+          setError(error.message);
+          setSuccess('');
+        })
+      }  
+      const handleGithubSignIn = () =>{
+        githubSignIn()
+        .then((result) => {
+          console.log(result);
+          setSuccess('User sign in by google successfully')
+          setError('');
+        })
+        .catch((error) =>{
+          setError(error.message)
+          setSuccess('');
+        })
+      }
   return (
     <Container className="w-25 mx-auto my-5 border border-1 p-3 rounded">
       <h3 className="">LogIn Your Account</h3>
@@ -53,7 +78,7 @@ const Login = () => {
           />
         </Form.Group>
         <p>
-          <Button variant="primary" type="submit">
+          <Button variant="warning" type="submit">
             Login
           </Button>
         </p>
@@ -67,8 +92,8 @@ const Login = () => {
         {success}
       </Form.Text>
       <div className="d-flex pt-2 gap-2">
-      <Button variant="outline-warning"><FaGoogle></FaGoogle> Login With Google</Button>
-      <Button variant="outline-warning"><FaGithub></FaGithub> Login With Github</Button>
+      <Button onClick={handleGoogleSignIn} variant="outline-warning"><FaGoogle></FaGoogle> Login With Google</Button>
+      <Button onClick={handleGithubSignIn} variant="outline-warning"><FaGithub></FaGithub> Login With Github</Button>
       </div>
       </Form>
     </Container>
