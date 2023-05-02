@@ -6,6 +6,7 @@ import { UserContext } from "../../provider/AuthProvider";
 import { FaUser } from "react-icons/fa";
 import image from '../../assets/close-up-portrait-curly-handsome-european-male.jpg'
 
+
 const Header = () => {
     const {user, logOut} = useContext(UserContext);
 
@@ -30,8 +31,6 @@ const Header = () => {
               <Nav.Link href="#deets">
                 {
                     user && 
-                    // <FaUser  className="text-white" style={{height: '3rem'}}></FaUser>
-                    // <img style={{height: '40px'}} className="text-white" src={image} alt="" srcset="" />
                     <Image src={image} style={{height: '50px', width: '50px'}} title={user.displayName}  roundedCircle />
                     
                 }
@@ -39,7 +38,7 @@ const Header = () => {
               <div className="ms-3">
               {
                 user ?
-                <Link><button onClick={handleLogOut} type="button" class="btn btn-warning">LogOut</button></Link>:
+                <Link><button onClick={handleLogOut} type="button" class="btn btn-warning">SignOut</button></Link>:
                 <Link to='/login'><button type="button" class="btn btn-warning">Login</button></Link>
               }
               </div>
@@ -47,6 +46,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      
     </div>
   );
 };
