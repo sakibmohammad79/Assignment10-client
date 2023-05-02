@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../provider/AuthProvider";
 import { FaUser } from "react-icons/fa";
 import image from '../../assets/close-up-portrait-curly-handsome-european-male.jpg'
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+
 
 
 const Header = () => {
@@ -28,13 +31,13 @@ const Header = () => {
                 <Link to='' className="text-decoration-none text-white">About</Link>
             </Nav>
             <Nav className="align-items-center">
-              <Nav.Link href="#deets">
                 {
                     user && 
-                    <Image src={image} style={{height: '50px', width: '50px'}} title={user.displayName}  roundedCircle />
-                    
+                    <>
+                    <Tippy  content={user.displayName}><Image className="text-white" src={image} style={{height: '50px', width: '50px'}}
+                     roundedCircle /></Tippy>
+                    </>
                 }
-              </Nav.Link>
               <div className="ms-3">
               {
                 user ?
@@ -46,7 +49,6 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Image } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { ToastContainer, toast } from 'react-toastify';
@@ -9,6 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const RecipeDetails = () => {
+    
+
     const [disabled1, setDisabled1] = useState(false);
     const [disabled2, setDisabled2] = useState(false);
     const [disabled3, setDisabled3] = useState(false);
@@ -23,7 +25,7 @@ const RecipeDetails = () => {
     }
     const handleToast3= ()=>{
         toast('Your Favourite Recipe Are Added!');
-        setDisabled1(true);
+        setDisabled3(true);
     }
     const RecipeDetails = useLoaderData();
     console.log(RecipeDetails);
@@ -41,7 +43,7 @@ const RecipeDetails = () => {
 
 
             <div >
-                <div className='d-flex align-items-center mb-3 border border-2 border-warning rounded'>
+                <div className='d-flex align-items-center mt-5 mb-5 border border-2 border-warning rounded'>
                     <img  style={{height: '230px', width: '150px'}} src={recipeTypes1[0].foodImage} alt="" />
                     <div className='ps-2'>
                     <p className='mb-2'><span className='fw-bolder text-warning fs-5'>Recipe Name:</span> <span className='fw-bold text-gray'>{recipeTypes1[0].recipeName}</span></p>
@@ -57,7 +59,7 @@ const RecipeDetails = () => {
                     </div>
                 </div>
                 
-                <div className='d-flex align-items-center mb-3 border border-2 border-warning rounded'>
+                <div className='d-flex align-items-center mb-5 border border-2 border-warning rounded'>
                     <img  style={{height: '230px', width: '150px'}} src={recipeTypes2[0].foodImage} alt="" />
                     <div className='ps-2'>
                     <p className='mb-2'><span className='fw-bolder text-warning fs-5'>Recipe Name:</span> <span className='fw-bold text-gray'>{recipeTypes2[0].recipeName}</span></p>
@@ -73,7 +75,7 @@ const RecipeDetails = () => {
                     </div>
                 </div>
 
-                <div className='d-flex align-items-center mb-3 border border-2 border-warning rounded'>
+                <div className='d-flex align-items-center mb-5 border border-2 border-warning rounded'>
                     <img  style={{height: '230px', width: '150px'}} src={recipeTypes3[0].foodImage} alt="" />
                     <div className='ps-2'>
                     <p className='mb-2'><span className='fw-bolder text-warning fs-5'>Recipe Namea:</span> <span className='fw-bold text-gray'>{recipeTypes3[0].recipeName}</span></p>

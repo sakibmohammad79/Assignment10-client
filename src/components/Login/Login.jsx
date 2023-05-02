@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../../provider/AuthProvider";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
@@ -9,6 +9,9 @@ const Login = () => {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.form?.pathname || '/';
 
     const handleLogIn = (event) =>{
         event.preventDefault();
@@ -23,6 +26,7 @@ const Login = () => {
             form.reset();
             setSuccess('User successfully login');
             setError('');
+            navigate(from)
         })
         .catch((error) => {
             console.log(error.message);
@@ -39,6 +43,8 @@ const Login = () => {
           const signInUser = result.user;
           console.log(signInUser);
           setSuccess('User sign in by google successfully')
+          setError('');
+          navigate(from)
         })
         .catch((error) => {
           setError(error.message);
@@ -51,6 +57,7 @@ const Login = () => {
           console.log(result);
           setSuccess('User sign in by google successfully')
           setError('');
+          navigate(from);
         })
         .catch((error) =>{
           setError(error.message)
