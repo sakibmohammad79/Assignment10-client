@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
 import './Home.css'
+import RecipeCard from "../RecipeCard/RecipeCard";
 
 const Home = () => {
-    const [data, setData] = useState([]);
+    const [datas, setDatas] = useState([]);
 
     useEffect(()=>{
         fetch('https://assignment10-recipe-hunting-server-sakibmohammad79.vercel.app/recipe')
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((data) => setDatas(data));
     },[])
 
   return (
-    <Carousel>
+    <div>
+        <Carousel>
       <Carousel.Item>
         <img
           className="d-block w-100"
@@ -53,6 +55,15 @@ const Home = () => {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    <div className="mt-5">
+    {
+        datas.map(data => <RecipeCard 
+        key={data.id}
+        data={data}>
+        </RecipeCard>)
+    }
+    </div>
+    </div>
   );
 };
 
