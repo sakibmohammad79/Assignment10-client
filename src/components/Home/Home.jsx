@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Container, Row } from "react-bootstrap";
 import './Home.css'
 import RecipeCard from "../RecipeCard/RecipeCard";
 
@@ -56,12 +56,17 @@ const Home = () => {
       </Carousel.Item>
     </Carousel>
     <div className="mt-5">
-    {
+    <Container>
+      <Row  xs={1} md={2} lg={3} className="g-4 mb-4 d-flex" >
+      {
         datas.map(data => <RecipeCard 
         key={data.id}
         data={data}>
         </RecipeCard>)
     }
+      </Row>
+    </Container>
+    
     </div>
     </div>
   );
