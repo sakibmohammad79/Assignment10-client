@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Carousel, Container, Row } from "react-bootstrap";
+import { Carousel, Container, Row, Spinner } from "react-bootstrap";
 import "./Home.css";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import People from "../People/People";
 import NewsEvent from "../NewsEvent/NewsEvent";
 import Record from "../Record/Record";
 
+
 const Home = () => {
   const [datas, setDatas] = useState([]);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetch(
@@ -15,16 +17,21 @@ const Home = () => {
     )
       .then((res) => res.json())
       .then((data) => setDatas(data));
+      setLoading(false)
   }, []);
 
+  const handleLoading = () =>{
+    return <Spinner animation="border" variant="warning" />
+  }
+
   return (
-    <div>
+      <div>
       <Carousel>
         <Carousel.Item>
           <img
             className="d-block w-100"
             style={{ height: "80vh" }}
-            src="https://i.postimg.cc/15hm963h/pexels-elevate-1267320.jpg"
+            src="https://i.postimg.cc/XNxGqQtS/pexels-min-an-1482803.jpg"
             alt="First slide"
           />
           <Carousel.Caption className="mb-5">
@@ -41,7 +48,7 @@ const Home = () => {
           <img
             className="d-block w-100"
             style={{ height: "80vh" }}
-            src="https://i.postimg.cc/XNxGqQtS/pexels-min-an-1482803.jpg"
+            src="https://i.postimg.cc/8Cjk72B6/pexels-elevate-1267320.jpg"
             alt="Second slide"
           />
           <Carousel.Caption className="mb-5">
@@ -58,7 +65,7 @@ const Home = () => {
           <img
             className="d-block w-100"
             style={{ height: "80vh" }}
-            src="https://i.postimg.cc/mZdkBhFT/pexels-yente-van-eynde-2403392.jpg"
+            src="https://i.postimg.cc/KYJcjZMF/pexels-umut-da-li-13087600.jpg"
             alt="Third slide"
           />
           <Carousel.Caption className="mb-5">
@@ -72,26 +79,29 @@ const Home = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-
+      
+      { loading? handleLoading() :
       <Container className="mt-5 mb-5">
-        <h3 className="text-center text-warning fw-bold">
-          Our All Talented Chef
-        </h3>
-        <p className="text-center">
-          <small className=" fw-bold text-muted">
-            Awesome Recipes By The Most Talented Chefs! We Have Awesome
-            <br></br> Recipe And Most Talented Chefs In Town!
-          </small>
-        </p>
-        <Row xs={1} md={2} lg={3} className="g-4 mb-4 d-flex">
-          {datas.map((data) => (
-            <RecipeCard key={data.id} data={data}></RecipeCard>
-          ))}
-        </Row>
-        <Record></Record>
-      </Container>
-
-      <Container className="my-5">
+      <h3 className="text-center text-warning fw-bold">
+        Our All Talented Chef
+      </h3>
+      <p className="text-center">
+        <small className=" fw-bold text-muted">
+          Awesome Recipes By The Most Talented Chefs! We Have Awesome
+          <br></br> Recipe And Most Talented Chefs In Town!
+        </small>
+      </p>
+      <Row xs={1} md={2} lg={3} className="g-4 mb-4 d-flex">
+        {datas.map((data) => (
+          <RecipeCard key={data.id} data={data}></RecipeCard>
+        ))}
+      </Row>
+      <Record></Record>
+    </Container>
+}
+      {
+        loading ? handleLoading() : 
+        <Container className="my-5">
         <h3 className="text-center text-warning fw-bold">
           People Say About Us!
         </h3>
@@ -107,7 +117,10 @@ const Home = () => {
           ))}
         </Row>
       </Container>
-      <Container className="my-5">
+      }
+      {
+        loading ? handleLoading():
+        <Container className="my-5">
         <h3 className="text-center text-warning fw-bold">
         Our News & Events
         </h3>
@@ -122,6 +135,7 @@ const Home = () => {
           ))}
         </Row>
       </Container>
+      }
     </div>
   );
 };
