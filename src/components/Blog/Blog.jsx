@@ -1,10 +1,12 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 
 const Blog = () => {
   return (
     <div className="p-5 bg-dark">
       <div>
+      <p className="text-warning bg-white text-center fs-3 mb-5 fw-bold">Most Important Question for A Web Developer in Web Developer Job Interview</p>
+        
        <h4 className="fw-bold text-warning">
           1.Tell us the differences between uncontrolled and controlled
           components?
@@ -51,6 +53,7 @@ const Blog = () => {
           The main reason to write a custom hook is for code reusability. For example, instead of writing the same code across multiple components that use the same common stateful logic (say a “setState” or localStorage logic), you can put that code inside a custom hook and reuse it.I want to use the data that Strava provides for my run workouts in my third-party application. Through the Strava API I can get activity info like route map, distance, achievements, and any other info that Strava provides. Let’s say I have a component that displays my past 10 activities.
         </p>
       </div>
+      <p className="text-center mt-5"><Button className="fw-bold py-3 px-3 text-white fw-bold" variant="outline-warning">React-To-PDF</Button></p>
     </div>
   );
 };

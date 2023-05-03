@@ -5,12 +5,13 @@ import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 
 
 
 const RecipeDetails = () => {
     
-
     const [disabled1, setDisabled1] = useState(false);
     const [disabled2, setDisabled2] = useState(false);
     const [disabled3, setDisabled3] = useState(false);
@@ -31,20 +32,19 @@ const RecipeDetails = () => {
     console.log(RecipeDetails);
     const {picture,name,about,numberOfRecife,like,yearOfExperience,address,email,phone,recipeTypes1,recipeTypes2,recipeTypes3} = RecipeDetails;
     return (
-        <div className='my-5 px-5 d-flex align-items-center gap-5'>
-            <div className='w-100'>
-             <Image style={{height: '500px', width:'450px',}} src={picture} roundedCircle />
-             <p className='mb-1 mt-4'><span className='text-warning fs-5 fw-bolder'>My name is:</span> <span className='fw-bold text-muted'>{name}</span></p>
+        <div className='my-5 px-5 d-flex  gap-5'>
+            <div className='w-100 mt-5'>
+             <LazyLoadImage style={{height: '500px', width:'450px'}} src={picture} className='rounded'/>
+             <p className='mb-1 mt-3'><span className='text-warning fs-5 fw-bolder'>My name is:</span> <span className='fw-bold text-muted'>{name}</span></p>
              <p className='mb-1'><span className='text-warning fs-5 fw-bolder'>About Me:</span> <span className='fw-bold text-muted'>{about}</span></p>
              <p className='mb-1'><span className='text-warning fs-5 fw-bolder'>My Experience:</span> <span className='fw-bold text-muted'>{yearOfExperience} Years</span></p>
              <p className='mb-1'><span className='text-warning fs-5 fw-bolder'>People Likes:</span> <span className='fw-bold text-muted'>{like}k</span></p>
              <p className='mb-1'><span className='text-warning fs-5 fw-bolder'>Recipe Types:</span> <span className='fw-bold text-muted'>{numberOfRecife}</span></p>
             </div>
 
-
             <div >
                 <div className='d-flex align-items-center mt-5 mb-5 border border-2 border-warning rounded'>
-                    <img  style={{height: '230px', width: '150px'}} src={recipeTypes1[0].foodImage} alt="" />
+                    <LazyLoadImage style={{height: '230px', width: '150px'}} src={recipeTypes1[0].foodImage} alt="" />
                     <div className='ps-2'>
                     <p className='mb-2'><span className='fw-bolder text-warning fs-5'>Recipe Name:</span> <span className='fw-bold text-muted'>{recipeTypes1[0].recipeName}</span></p>
                     <p className='mb-2'><span className='fw-bolder text-warning fs-5'>Recipe Ingradients:</span> {recipeTypes1[0].ingredients.map(ingra => <span className='me-2 fw-bold text-muted'>{ingra}</span>)}</p>
@@ -60,7 +60,7 @@ const RecipeDetails = () => {
                 </div>
                 
                 <div className='d-flex align-items-center mb-5 border border-2 border-warning rounded'>
-                    <img  style={{height: '230px', width: '150px'}} src={recipeTypes2[0].foodImage} alt="" />
+                    <LazyLoadImage  style={{height: '230px', width: '150px'}} src={recipeTypes2[0].foodImage} alt="" />
                     <div className='ps-2'>
                     <p className='mb-2'><span className='fw-bolder text-warning fs-5'>Recipe Name:</span> <span className='fw-bold text-muted'>{recipeTypes2[0].recipeName}</span></p>
                     <p className='mb-2'><span className='fw-bolder text-warning fs-5'>Recipe Ingradients:</span> {recipeTypes2[0].ingredients.map(ingra => <span className='me-2 fw-bold text-muted'>{ingra}</span>)}</p>

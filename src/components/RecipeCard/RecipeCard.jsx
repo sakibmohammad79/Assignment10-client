@@ -1,13 +1,18 @@
 import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 
 const RecipeCard = ({ data }) => {
   const { id, picture, name, yearOfExperience, numberOfRecife, like, about } = data;
   return (
     <Col>
     <Card>
-      <Card.Img style={{height: '250px'}} className="img-fluid" variant="top" src={picture} />
+      <LazyLoadImage style={{height: '250px'}} src={picture}
+       className="img-fluid"
+        alt="Image Alt"
+      />
       <Card.Body>
         <Card.Title className="fw-bolder">{name}</Card.Title>
         <Card.Text className="fw-bold text-muted mb-2">
