@@ -35,11 +35,11 @@ const Home = () => {
             alt="First slide"
           />
           <Carousel.Caption className="mb-5">
-            <h5 className="fw-bold">Fresh Ingredient, Tasty Meal</h5>
-            <h1 className="fs-1 fw-bolder">
+            <h5 className="fw-bold text-white">Fresh Ingredient, Tasty Meal</h5>
+            <h1 className="fs-1 fw-bolder text-white">
               Awesome Recipes By The Most Talented Chefs!
             </h1>
-            <p className="fw-bold">
+            <p className="fw-bold text-white">
               We Have Awesome Recipe And Most Talented Chefs In Town!
             </p>
           </Carousel.Caption>

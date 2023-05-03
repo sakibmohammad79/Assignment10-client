@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 const Footer = () => {
   return (
     <div className="bg-dark ">
-      <div className="d-flex justify-content-around p-5">
+      <div className="md:d-flex justify-content-around p-5">
         <div className="text-center">
           <p className="text-white fw-bold">Our Address</p>
           <p className="text-white-50">

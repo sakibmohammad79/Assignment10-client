@@ -9,16 +9,18 @@ const RecipeCard = ({ data }) => {
     <Card>
       <Card.Img style={{height: '250px'}} className="img-fluid" variant="top" src={picture} />
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
-        <Card.Text>
-          {about.slice(0, 160)}.
+        <Card.Title className="fw-bolder">{name}</Card.Title>
+        <Card.Text className="fw-bold text-muted mb-2">
+          {about.slice(0, 150)}.
         </Card.Text>
-        <p>Year OF Experience: {yearOfExperience} Year</p>
-        <p>Types Of Recipe: {numberOfRecife} Types</p>
-        <div className="d-flex justify-content-between align-items-center">
-        <p>Likes: {like}</p>
-        <Link to={`recipe/${id}`}><Button variant="warning">View Recipes Button</Button></Link>
+        <p className="mb-1" ><span className="fw-bolder">Year OF Experience:</span> <span className="fw-bold text-muted">{yearOfExperience} Year</span></p>
+        <p className="mb-1"><span className="fw-bolder">Types Of Recipe:</span> <span className="fw-bold text-muted">{numberOfRecife} Types</span></p>
+    
+        <p className="mb-1"><span className="fw-bolder">Likes:</span><span className="fw-bold text-muted"> {like}</span></p>
+        <div className="text-center mt-2">
+        <Link style={{width: '100%'}} to={`recipe/${id}`}><Button className="fw-bold text-white pt-2 pb-2" variant="warning">View Recipes Details</Button></Link>
         </div>
+        
       </Card.Body>
     </Card>
   </Col>

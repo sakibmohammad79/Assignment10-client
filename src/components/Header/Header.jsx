@@ -25,10 +25,10 @@ const Header = () => {
           <Navbar.Brand href="/"><img src={logo} alt="" /></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="m-auto">
-                <Link to='/' className="text-decoration-none text-white">Home</Link>
-                <Link to='' className="text-decoration-none text-white mx-3">Blog</Link>
-                <Link to='' className="text-decoration-none text-white">About</Link>
+            <Nav className="mx-auto">
+                <Link to='/' className="text-decoration-none text-white fw-bold">Home</Link>
+                <Link to='' className="text-decoration-none text-white px-3 md:px-3 fw-bold">Blog</Link>
+                <Link to='' className="text-decoration-none text-white fw-bold hover:text-warning">About</Link>
             </Nav>
             <Nav className="align-items-center">
                 {
@@ -41,8 +41,8 @@ const Header = () => {
               <div className="ms-3">
               {
                 user ?
-                <Link><button onClick={handleLogOut} type="button" class="btn btn-warning">SignOut</button></Link>:
-                <Link to='/login'><button type="button" class="btn btn-warning">Login</button></Link>
+                <Link><button onClick={handleLogOut} type="button" class="btn btn-warning"><span className="fw-bold text-white">SignOut</span></button></Link>:
+                <Link to='/login'><button type="button" class="btn btn-warning"><span className="fw-bold text-white">Login</span></button></Link>
               }
               </div>
             </Nav>
