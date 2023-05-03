@@ -3,7 +3,7 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const RecipeCard = ({ data }) => {
-  const { id, picture, name, yearOfExperience, numberOfRecife, like } = data;
+  const { id, picture, name, yearOfExperience, numberOfRecife, like, about } = data;
   return (
     <Col>
     <Card>
@@ -11,9 +11,7 @@ const RecipeCard = ({ data }) => {
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Text>
-          This is a longer card with supporting text below as a natural
-          lead-in to additional content. This content is a little bit
-          longer.
+          {about.slice(0, 160)}.
         </Card.Text>
         <p>Year OF Experience: {yearOfExperience} Year</p>
         <p>Types Of Recipe: {numberOfRecife} Types</p>

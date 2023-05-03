@@ -5,7 +5,7 @@ import { Card, Col, Image } from "react-bootstrap";
 
 const People = ({ data }) => {
   console.log(data);
-  const { userRating, userName, userPicture,time} = data;
+  const { userRating, userName, userPicture,time,userComment} = data;
   return (
     <Col>
       <Card>
@@ -14,8 +14,7 @@ const People = ({ data }) => {
           <Rating style={{ maxWidth: 120 }} value={userRating} readOnly />
           <Card.Title className="mt-2">{userName}</Card.Title>
           <Card.Text>
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
+            {userComment.slice(0, 147)}.
           </Card.Text>
         </Card.Body>
         <Card.Footer className="d-flex">

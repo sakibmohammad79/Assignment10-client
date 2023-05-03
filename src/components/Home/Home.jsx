@@ -3,6 +3,8 @@ import { Carousel, Container, Row } from "react-bootstrap";
 import "./Home.css";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import People from "../People/People";
+import NewsEvent from "../NewsEvent/NewsEvent";
+import Record from "../Record/Record";
 
 const Home = () => {
   const [datas, setDatas] = useState([]);
@@ -70,42 +72,56 @@ const Home = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-  
-        <Container className="mt-5">
-          <h3 className="text-center text-warning fw-bold">
-            Our All Talented Chef
-          </h3>
-          <p className="text-center">
-            <small className=" fw-bold text-muted">
-              Awesome Recipes By The Most Talented Chefs! We Have Awesome
-              <br></br> Recipe And Most Talented Chefs In Town!
-            </small>
-          </p>
-          <Row xs={1} md={2} lg={3} className="g-4 mb-4 d-flex">
-            {datas.map((data) => (
-              <RecipeCard key={data.id} data={data}></RecipeCard>
-            ))}
-          </Row>
-        </Container>
 
-        <Container className="mt-5">
-          <h3 className="text-center text-warning fw-bold">
+      <Container className="mt-5 mb-5">
+        <h3 className="text-center text-warning fw-bold">
+          Our All Talented Chef
+        </h3>
+        <p className="text-center">
+          <small className=" fw-bold text-muted">
+            Awesome Recipes By The Most Talented Chefs! We Have Awesome
+            <br></br> Recipe And Most Talented Chefs In Town!
+          </small>
+        </p>
+        <Row xs={1} md={2} lg={3} className="g-4 mb-4 d-flex">
+          {datas.map((data) => (
+            <RecipeCard key={data.id} data={data}></RecipeCard>
+          ))}
+        </Row>
+        <Record></Record>
+      </Container>
+
+      <Container className="my-5">
+        <h3 className="text-center text-warning fw-bold">
           People Say About Us!
-          </h3>
-          <p className="text-center">
-            <small className=" fw-bold text-muted">
-              Awesome Recipes By The Most Talented Chefs! We Have Awesome
-              <br></br> Recipe And Most Talented Chefs In Town!
-            </small>
-          </p>
-          <Row xs={1} md={2} lg={3} className="g-4 mb-4 d-flex">
-          {
-            datas.map((data) => (
-              <People key={data.id} data={data}></People>
-            ))
-          }
-          </Row>
-        </Container>
+        </h3>
+        <p className="text-center">
+          <small className=" fw-bold text-muted">
+            Awesome Recipes By The Most Talented Chefs! We Have Awesome
+            <br></br> Recipe And Most Talented Chefs In Town!
+          </small>
+        </p>
+        <Row xs={1} md={2} lg={3} className="g-4 mb-4 d-flex">
+          {datas.map((data) => (
+            <People key={data.id} data={data}></People>
+          ))}
+        </Row>
+      </Container>
+      <Container className="my-5">
+        <h3 className="text-center text-warning fw-bold">
+        Our News & Events
+        </h3>
+        <p className="text-center">
+          <small className=" fw-bold text-muted">
+          Follow our latest news updates to know about our offers, recipes and events. One cannot think well,<br></br> love well, sleep well, if one has not dined well
+          </small>
+        </p>
+        <Row xs={1} md={2} lg={3} className="g-4 mb-4 d-flex">
+          {datas.map((data) => (
+            <NewsEvent key={data.id} data={data}></NewsEvent>
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 };
