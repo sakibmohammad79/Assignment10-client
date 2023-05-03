@@ -92,17 +92,19 @@ const Register = () => {
             label="accept"
           />
         </Form.Group>
-        <Button variant="warning" type="submit">
-          Register
+        <div className="text-center">
+        <Button style={{width: '90%'}} variant="warning" type="submit">
+          <span className="fw-bold text-white">Register</span>
         </Button>
+        </div>
       </Form>
-      <Form.Text className="text-muted">
-        Already have an account? <Link to="/login">Login</Link>
+      <Form.Text className="text-muted fw-bold">
+        Already have an account? <Link className="text-decoration-none fw-bold text-warning" to="/login">Login</Link>
       </Form.Text>
-      <Form.Text className="text-danger fw-bold">
+      <Form.Text className="text-danger fw-bold text-center">
        <br></br>{error}
       </Form.Text>
-      <Form.Text className="text-success fw-bold">
+      <Form.Text className="text-success fw-bold text-center">
         {success}
       </Form.Text>
     </Container>

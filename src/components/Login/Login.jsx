@@ -5,65 +5,62 @@ import { UserContext } from "../../provider/AuthProvider";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-    const {logUser, googleSignIn, githubSignIn} = useContext(UserContext);
-    const [error, setError] = useState(null);
-    const [success, setSuccess] = useState(null);
+  const { logUser, googleSignIn, githubSignIn } = useContext(UserContext);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.form?.pathname || '/';
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.form?.pathname || "/";
 
-    const handleLogIn = (event) =>{
-        event.preventDefault();
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
+  const handleLogIn = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
 
-        logUser(email, password)
-        .then((result) => {
-            const logUser = result.user;
-            console.log(logUser);
-            form.reset();
-            setSuccess('User successfully login');
-            setError('');
-            navigate(from)
-        })
-        .catch((error) => {
-            console.log(error.message);
-            setError(error.message);
-            setSuccess('');
-        })
-
-        
-
-      }
-      const handleGoogleSignIn = () =>{
-        googleSignIn()
-        .then((result) => {
-          const signInUser = result.user;
-          console.log(signInUser);
-          setSuccess('User sign in by google successfully')
-          setError('');
-          navigate(from)
-        })
-        .catch((error) => {
-          setError(error.message);
-          setSuccess('');
-        })
-      }  
-      const handleGithubSignIn = () =>{
-        githubSignIn()
-        .then((result) => {
-          console.log(result);
-          setSuccess('User sign in by google successfully')
-          setError('');
-          navigate(from);
-        })
-        .catch((error) =>{
-          setError(error.message)
-          setSuccess('');
-        })
-      }
+    logUser(email, password)
+      .then((result) => {
+        const logUser = result.user;
+        console.log(logUser);
+        form.reset();
+        setSuccess("User successfully login");
+        setError("");
+        navigate(from);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError(error.message);
+        setSuccess("");
+      });
+  };
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const signInUser = result.user;
+        console.log(signInUser);
+        setSuccess("User sign in by google successfully");
+        setError("");
+        navigate(from);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setSuccess("");
+      });
+  };
+  const handleGithubSignIn = () => {
+    githubSignIn()
+      .then((result) => {
+        console.log(result);
+        setSuccess("User sign in by google successfully");
+        setError("");
+        navigate(from);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setSuccess("");
+      });
+  };
   return (
     <Container className="w-25 mx-auto my-5 border border-1 p-3 rounded">
       <h3 className="">LogIn Your Account</h3>
@@ -86,24 +83,47 @@ const Login = () => {
             placeholder="Password"
           />
         </Form.Group>
-        <p>
-          <Button variant="warning" type="submit">
-            Login
+        <p className="text-center mb-1">
+          <Button style={{ width: "90%" }} variant="warning" type="submit">
+            <span className="fw-bold text-white">Login</span>
           </Button>
+          <Form.Text className="text-success text-muted fw-bold">
+            Don't have an account?{" "}
+            <Link
+              className="text-decoration-none fw-bold text-warning"
+              to="/register"
+            >
+              Register
+            </Link>
+          </Form.Text>
         </p>
-        <Form.Text className="text-success">
-          Don't have an account? <Link to="/register">Register</Link>
+        <p className=" fw-bold text-center">
+          <small>OR</small>
+        </p>
+        <div className="text-center mt-0 mb-2">
+          <Button
+            style={{ width: "90%" }}
+            className="mb-2 fw-bold"
+            onClick={handleGoogleSignIn}
+            variant="outline-warning"
+          >
+            <FaGoogle></FaGoogle> Login With Google
+          </Button>
+          <Button
+            style={{ width: "90%" }}
+            className="fw-bold"
+            onClick={handleGithubSignIn}
+            variant="outline-warning"
+          >
+            <FaGithub></FaGithub> Login With Github
+          </Button>
+        </div>
+        <Form.Text className="text-danger fw-bold text-center">
+          {error}
         </Form.Text>
-        <Form.Text className="text-danger fw-bold">
-       <br></br>{error}
-      </Form.Text>
-      <Form.Text className="text-success fw-bold">
-        {success}
-      </Form.Text>
-      <div className="d-flex pt-2 gap-2">
-      <Button onClick={handleGoogleSignIn} variant="outline-warning"><FaGoogle></FaGoogle> Login With Google</Button>
-      <Button onClick={handleGithubSignIn} variant="outline-warning"><FaGithub></FaGithub> Login With Github</Button>
-      </div>
+        <Form.Text
+         className="text-success fw-bold text-center">{success}
+         </Form.Text>
       </Form>
     </Container>
   );
