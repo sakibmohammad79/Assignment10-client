@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
-import { Container, Image, Nav, Navbar, Tooltip } from "react-bootstrap";
+import { Container, Image, Nav, Navbar } from "react-bootstrap";
 import logo from '../../assets/logo.svg'
-import { Link } from "react-router-dom";
+import { Link, NavLink} from "react-router-dom";
 import { UserContext } from "../../provider/AuthProvider";
 import { FaUser } from "react-icons/fa";
 import image from '../../assets/close-up-portrait-curly-handsome-european-male.jpg'
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import './Header.css'
+import ActiveLink from "../ActiveLink/ActiveLink";
 
 
 
@@ -25,11 +27,11 @@ const Header = () => {
           <Navbar.Brand href="/"><img src={logo} alt="" /></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mx-auto">
-                <Link to='/' className="text-decoration-none text-white fw-bold">Home</Link>
-                <Link to='' className="text-decoration-none text-white px-3 md:px-3 fw-bold">Blog</Link>
-                <Link to='' className="text-decoration-none text-white fw-bold hover:text-warning">About</Link>
-            </Nav>
+            <nav className="mx-auto">
+                <ActiveLink to='/' >Home</ActiveLink>
+                <ActiveLink to='/blog' >Blog</ActiveLink>
+                <ActiveLink to='/about' >About</ActiveLink>
+            </nav>
             <Nav className="align-items-center">
                 {
                     user && 
@@ -38,7 +40,7 @@ const Header = () => {
                      roundedCircle /></Tippy>
                     </>
                 }
-              <div className="ms-3">
+              <div className="ms-2">
               {
                 user ?
                 <Link><button onClick={handleLogOut} type="button" class="btn btn-warning"><span className="fw-bold text-white">SignOut</span></button></Link>:

@@ -12,15 +12,15 @@ const People = ({ data }) => {
         <Image  className="mt-3 ms-3 border border-2 border-warning"  style={{height:'50px', width: '50px'}}  src={userPicture} roundedCircle />
         <Card.Body>
           <Rating style={{ maxWidth: 120 }} value={userRating} readOnly />
-          <Card.Title className="mt-2">{userName}</Card.Title>
-          <Card.Text>
+          <Card.Title className="mt-2 fw-bold">{userName}</Card.Title>
+          <Card.Text className="fw-bold text-muted">
             {userComment.slice(0, 147)}.
           </Card.Text>
         </Card.Body>
-        <Card.Footer className="d-flex">
-          <small className="text-muted">{time}</small>
-          <small className="text-muted ms-auto">Guest</small>
-        </Card.Footer>
+        <div  className="d-flex px-3 pb-3 fw-bold text-warning">
+          <small className="">{time}</small>
+          <small className=" ms-auto">Guest</small>
+        </div>
       </Card>
     </Col>
   );

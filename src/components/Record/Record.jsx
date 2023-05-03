@@ -13,11 +13,11 @@ const Record = () => {
         <h3 className='mb-3 mt-5 text-center text-warning fw-bold'>A recognized track-record</h3>
         <Container className='text-center'>
             <img src={logo1} alt="" />
-            <img className='px-2 md:px-5' src={logo2} alt="" />
+            <img className='px-4' src={logo2} alt="" />
             <img src={logo3} alt="" />
-            <img className=' px-2 md:px-5' src={logo4} alt="" />
+            <img className=' px-4 ' src={logo4} alt="" />
             <img className='mt-3 md:mt-0' src={logo5} alt="" />
-            <img className='mt-3 md:mt-0 ps-2 md:ps-5' src={logo6} alt="" />
+            <img className='mt-3 md:mt-0 px-4 md:ps-5' src={logo6} alt="" />
         </Container>
        </div>
     );

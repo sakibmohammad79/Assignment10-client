@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 const Footer = () => {
   return (
     <div className="bg-dark ">
-      <div className="md:d-flex justify-content-around p-5">
+      <div className="d-flex justify-content-around p-5">
         <div className="text-center">
           <p className="text-white fw-bold">Our Address</p>
           <p className="text-white-50">
@@ -30,7 +30,7 @@ const Footer = () => {
           Babette was designed with the history in mind we have created a soft <br></br>industrial dining room, combined with an open kitchen, coffee take out<br></br> bar and alovely awesome on site coffee roastery.
         </p>
         <div className="pt-1 pb-5">
-        <Button className="fw-bold py-3 px-3" variant="outline-warning">Book Your Table Now!</Button>
+        <Button className="fw-bold py-3 px-3" variant="outline-warning">Book Your Chef Now!</Button>
         </div>
       </div>
     </div>

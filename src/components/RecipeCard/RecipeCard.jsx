@@ -17,8 +17,8 @@ const RecipeCard = ({ data }) => {
         <p className="mb-1"><span className="fw-bolder">Types Of Recipe:</span> <span className="fw-bold text-muted">{numberOfRecife} Types</span></p>
     
         <p className="mb-1"><span className="fw-bolder">Likes:</span><span className="fw-bold text-muted"> {like}</span></p>
-        <div className="text-center mt-2">
-        <Link style={{width: '100%'}} to={`recipe/${id}`}><Button className="fw-bold text-white pt-2 pb-2" variant="warning">View Recipes Details</Button></Link>
+        <div className="text-center mt-3">
+        <Link style={{width: '100%'}} to={`recipe/${id}`}><Button className="fw-bold text-white px-3 pt-2 pb-2" variant="warning">View Chef And Recipes Details</Button></Link>
         </div>
         
       </Card.Body>

@@ -6,6 +6,7 @@ import Register from "../components/Register/Register";
 import Error from "../components/Error/Error";
 import RecipeDetails from "../components/RecipeDetails/RecipeDetails";
 import PrivateRoute from "./PrivateRoute";
+import Blog from "../components/Blog/Blog";
 
 
 
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
                 path: '/recipe/:id',
                 element: <PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>,
                 loader: ({params}) => fetch(`https://assignment10-recipe-hunting-server-sakibmohammad79.vercel.app/recipe/${params.id}`)
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
 
         ]
