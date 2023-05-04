@@ -7,7 +7,7 @@ import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
-    const {registerUser, updateUser} = useContext(UserContext);
+    const {registerUser} = useContext(UserContext);
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
 
