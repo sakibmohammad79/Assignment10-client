@@ -62,8 +62,10 @@ const Login = () => {
       });
   };
   return (
-    <Container style={{boxShadow: '2px 2px 4px #888888'}} className="w-25 mx-auto my-5 border border-1 p-3 rounded">
-      <h3 className="">LogIn Your Account</h3>
+    <div className="row">
+      <Container style={{boxShadow: '2px 2px 4px #888888'}} className="col-10 col-md-3 mx-auto my-5 border border-1 p-3 rounded">
+     <div>
+     <h3 className="">LogIn Your Account</h3>
       <Form onSubmit={handleLogIn}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -125,7 +127,9 @@ const Login = () => {
          className="text-success fw-bold text-center">{success}
          </Form.Text>
       </Form>
+     </div>
     </Container>
+    </div>
   );
 };
 
