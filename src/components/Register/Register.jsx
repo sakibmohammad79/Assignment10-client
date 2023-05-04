@@ -51,7 +51,7 @@ const Register = () => {
     }
 
   return (
-    <Container className="w-25 mx-auto my-5 border border-1 p-3 rounded">
+    <Container style={{boxShadow: '2px 2px 4px #888888'}} className="w-25 mx-auto my-5 border border-1 p-3 rounded">
       <h3 className="">Register Your Account</h3>
       <Form onSubmit={handleRegister}>
         <Form.Group className="mb-3" controlId="formBasicEmail">

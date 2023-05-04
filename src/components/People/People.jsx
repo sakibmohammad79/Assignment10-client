@@ -9,7 +9,7 @@ const People = ({ data }) => {
   const { userRating, userName, userPicture,time,userComment} = data;
   return (
     <Col>
-      <Card>
+      <Card style={{boxShadow: '2px 2px 4px #888888'}}>
         <Image  className="mt-3 ms-3 border border-2 border-warning"  style={{height:'50px', width: '50px'}}  src={userPicture} roundedCircle />
         <Card.Body>
           <Rating style={{ maxWidth: 120 }} value={userRating} readOnly />

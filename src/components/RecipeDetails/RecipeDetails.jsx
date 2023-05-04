@@ -34,7 +34,7 @@ const RecipeDetails = () => {
     return (
         <div className='my-5 px-5 d-flex  gap-5'>
             <div className='w-100 mt-5'>
-             <LazyLoadImage style={{height: '500px', width:'450px'}} src={picture} className='rounded'/>
+             <LazyLoadImage style={{height: '500px', width:'450px', boxShadow: '2px 2px 4px #888888'}} src={picture} className='rounded'/>
              <p className='mb-1 mt-3'><span className='text-warning fs-5 fw-bolder'>My name is:</span> <span className='fw-bold text-muted'>{name}</span></p>
              <p className='mb-1'><span className='text-warning fs-5 fw-bolder'>About Me:</span> <span className='fw-bold text-muted'>{about}</span></p>
              <p className='mb-1'><span className='text-warning fs-5 fw-bolder'>My Experience:</span> <span className='fw-bold text-muted'>{yearOfExperience} Years</span></p>
@@ -43,8 +43,8 @@ const RecipeDetails = () => {
             </div>
 
             <div >
-                <div className='d-flex align-items-center mt-5 mb-5 border border-2 border-warning rounded'>
-                    <LazyLoadImage style={{height: '230px', width: '150px'}} src={recipeTypes1[0].foodImage} alt="" />
+                <div style={{boxShadow: '2px 2px 4px #888888'}} className='d-flex align-items-center mt-5 mb-5 p-2 rounded'>
+                    <LazyLoadImage className='rounded' style={{height: '230px', width: '150px'}} src={recipeTypes1[0].foodImage} alt="" />
                     <div className='ps-2'>
                     <p className='mb-2'><span className='fw-bolder text-warning fs-5'>Recipe Name:</span> <span className='fw-bold text-muted'>{recipeTypes1[0].recipeName}</span></p>
                     <p className='mb-2'><span className='fw-bolder text-warning fs-5'>Recipe Ingradients:</span> {recipeTypes1[0].ingredients.map(ingra => <span className='me-2 fw-bold text-muted'>{ingra}</span>)}</p>
@@ -59,8 +59,8 @@ const RecipeDetails = () => {
                     </div>
                 </div>
                 
-                <div className='d-flex align-items-center mb-5 border border-2 border-warning rounded'>
-                    <LazyLoadImage  style={{height: '230px', width: '150px'}} src={recipeTypes2[0].foodImage} alt="" />
+                <div style={{boxShadow: '2px 2px 4px #888888'}} className='d-flex align-items-center mb-5 p-2 rounded'>
+                    <LazyLoadImage className='rounded'  style={{height: '230px', width: '150px'}} src={recipeTypes2[0].foodImage} alt="" />
                     <div className='ps-2'>
                     <p className='mb-2'><span className='fw-bolder text-warning fs-5'>Recipe Name:</span> <span className='fw-bold text-muted'>{recipeTypes2[0].recipeName}</span></p>
                     <p className='mb-2'><span className='fw-bolder text-warning fs-5'>Recipe Ingradients:</span> {recipeTypes2[0].ingredients.map(ingra => <span className='me-2 fw-bold text-muted'>{ingra}</span>)}</p>
@@ -75,8 +75,8 @@ const RecipeDetails = () => {
                     </div>
                 </div>
 
-                <div className='d-flex align-items-center mb-5 border border-2 border-warning rounded'>
-                    <img  style={{height: '230px', width: '150px'}} src={recipeTypes3[0].foodImage} alt="" />
+                <div style={{boxShadow: '2px 2px 4px #888888'}} className='d-flex align-items-center mb-5 rounded p-2'>
+                    <img className='rounded'  style={{height: '230px', width: '150px'}} src={recipeTypes3[0].foodImage} alt="" />
                     <div className='ps-2'>
                     <p className='mb-2'><span className='fw-bolder text-warning fs-5'>Recipe Namea:</span> <span className='fw-bold text-muted'>{recipeTypes1[0].recipeName}</span></p>
                     <p className='mb-2'><span className='fw-bolder text-warning fs-5'>Recipe Ingradients:</span> {recipeTypes2[0].ingredients.map(ingra => <span className='me-2 fw-bold text-muted'>{ingra}</span>)}</p>

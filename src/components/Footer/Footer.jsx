@@ -4,21 +4,21 @@ import { Button } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <div className="bg-dark ">
-      <div className="d-flex justify-content-around p-5">
-        <div className="text-center">
+    <div className="bg-dark pt-5 mt-5">
+      <div className="row ">
+        <div className="text-center col-md-4">
           <p className="text-white fw-bold">Our Address</p>
           <p className="text-white-50">
             22 Alnahas Building, 2 AlBahr St, Tanta
           </p>
           <p className="text-white-50">Al-Gharbia Governorate, Egypt</p>
         </div>
-        <div className="text-center">
+        <div className="text-center col-md-4">
           <p className="text-white fw-bold">Opening Hours</p>
           <p className="text-white-50">Mon – Fri: 10 AM – 11 PM</p>
           <p className="text-white-50">Sat – Sun: 9 AM – 1 PM</p>
         </div>
-        <div className="text-center">
+        <div className="text-center col-md-4">
           <p className="text-white fw-bold">Private Dinning</p>
           <p className="text-white-50">Main Email: Babette@7oroof.com</p>
           <p className="text-white-50">Phone: 02 0106670721</p>

@@ -1,12 +1,13 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const NewsEvent = ({ data }) => {
-  const {recipeTypes3, newsTitle, eventDate} = data;
+  const {recipeTypes3, newsTitle, newsAbout, eventDate} = data;
   return (
     <Col>
-      <Card>
-        <Card.Body>
+      <Card style={{boxShadow: '2px 2px 4px #888888'}}>
+        <Card.Body >
           <Card.Img
             style={{ height: "250px" }}
             className="img-fluid"
@@ -14,15 +15,15 @@ const NewsEvent = ({ data }) => {
             src={recipeTypes3[0].foodImage}
             rounded
           />
-          <Card.Title className="mt-2 fw-bold">{newsTitle}</Card.Title>
+          <Card.Title className="mt-2 fw-bold text-warning">{newsTitle}</Card.Title>
           <Card.Text className="text-muted fw-bold">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
+            {newsAbout.slice(0,150)}
           </Card.Text>
+          <Link className="text-muted fw-bolder">see more</Link>
         </Card.Body>
         <Card.Footer className="d-flex fw-bold">
         <small className="text-warning">{eventDate}</small>
-          <small className="text-warning ms-auto">See More</small>
+          <small className="text-warning ms-auto">Available</small>
         </Card.Footer>
       </Card>
     </Col>

@@ -7,6 +7,7 @@ import Error from "../components/Error/Error";
 import RecipeDetails from "../components/RecipeDetails/RecipeDetails";
 import PrivateRoute from "./PrivateRoute";
 import Blog from "../components/Blog/Blog";
+import About from "../components/About/About";
 
 
 
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/about',
+                element: <About></About>
             }
 
         ]
