@@ -12,8 +12,6 @@ import Gallery from "../Gallery/Gallery";
 
 const Home = () => {
   const [datas, setDatas] = useState([]);
-  
-  // const [sliceData, setSlicData] = useState(datas.slice(0,6));
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -113,8 +111,7 @@ const Home = () => {
                 <RecipeCard key={data.id} data={data}></RecipeCard>
               ))}
             </Row>
-            
-            <Record></Record>
+          <Record></Record>
           </Container>
           </div>
           <Gallery></Gallery>

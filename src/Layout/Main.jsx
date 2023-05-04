@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer';
 
 const Main = () => {
     return (
-        <div>
+        <div style={{maxWidth: '100vw', overflow: 'hidden'}}>
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>

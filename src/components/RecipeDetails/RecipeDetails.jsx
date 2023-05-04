@@ -30,7 +30,7 @@ const RecipeDetails = () => {
     }
     const RecipeDetails = useLoaderData();
     console.log(RecipeDetails);
-    const {picture,name,about,numberOfRecife,like,yearOfExperience,address,email,phone,recipeTypes1,recipeTypes2,recipeTypes3} = RecipeDetails;
+    const {picture,name,about,numberOfRecife,like,yearOfExperience,recipeTypes1,recipeTypes2,recipeTypes3} = RecipeDetails;
     return (
         <div className='my-5 px-5 d-flex  gap-5'>
             <div className='w-100 mt-5'>

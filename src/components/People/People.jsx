@@ -5,7 +5,6 @@ import { Card, Col, Image } from "react-bootstrap";
 
 
 const People = ({ data }) => {
-  console.log(data);
   const { userRating, userName, userPicture,time,userComment} = data;
   return (
     <Col>

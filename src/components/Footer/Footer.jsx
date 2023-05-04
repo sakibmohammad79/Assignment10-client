@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <div className="bg-dark pt-5 mt-5">
+    <div className="bg-dark pt-5">
       <div className="row ">
         <div className="text-center col-md-4">
           <p className="text-white fw-bold">Our Address</p>
