@@ -12,6 +12,7 @@ import Gallery from "../Gallery/Gallery";
 
 const Home = () => {
   const [datas, setDatas] = useState([]);
+  console.log(datas);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ const Home = () => {
         <Carousel.Item>
           <LazyLoadImage
             className="d-block w-100"
-            style={{ height: "90vh", filter: 'brightness(50%)' }}
+            style={{ height: "90vh", filter: 'brightness(60%)' }}
             src="https://i.postimg.cc/XNxGqQtS/pexels-min-an-1482803.jpg"
             alt="First slide"
           />
@@ -73,7 +74,7 @@ const Home = () => {
         <Carousel.Item>
           <LazyLoadImage
             className="d-block w-100"
-            style={{ height: "90vh", filter: 'brightness(50%)' }}
+            style={{ height: "90vh", filter: 'brightness(60%)' }}
             src="https://i.postimg.cc/7LLbmcgH/pexels-rodnae-productions-5779787.jpg"
             alt="Third slide"
           />

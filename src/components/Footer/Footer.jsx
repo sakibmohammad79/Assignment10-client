@@ -1,6 +1,8 @@
 import React from "react";
 import logo from "../../assets/logo.svg";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -29,9 +31,16 @@ const Footer = () => {
         <p className="text-white-50 py-3">
           Babette was designed with the history in mind we have created a soft <br></br>industrial dining room, combined with an open kitchen, coffee take out<br></br> bar and alovely awesome on site coffee roastery.
         </p>
-        <div className="pt-1 pb-5">
+        <div className="pt-1 pb-3">
         <Button className="fw-bold py-3 px-3" variant="outline-warning">Book Your Chef Now!</Button>
         </div>
+
+        <div className=" pb-5 ">
+              <Link className="text-white"><FaFacebook style={{height: '1.8rem', width: '2rem'}}></FaFacebook></Link>
+              <Link className="text-white px-3"><FaTwitter style={{height: '1.8rem', width: '2rem'}}></FaTwitter></Link>
+              <Link className="text-white"><FaInstagram style={{height: '1.8rem', width: '2rem'}}></FaInstagram></Link>
+        </div>
+
       </div>
     </div>
   );

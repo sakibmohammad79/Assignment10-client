@@ -29,7 +29,7 @@ const Header = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <nav className="mx-auto">
                 <ActiveLink to='/' >Home</ActiveLink>
-                <ActiveLink to='/blog' >Blog</ActiveLink>
+                <ActiveLink className='px-5' to='/blog' >Blog</ActiveLink>
                 <ActiveLink to='/about' >About</ActiveLink>
             </nav>
             <Nav className="align-items-center">
