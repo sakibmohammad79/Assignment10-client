@@ -7,7 +7,7 @@ import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
-    const {registerUser} = useContext(UserContext);
+    const {registerUser, setLoad} = useContext(UserContext);
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
 
@@ -42,6 +42,7 @@ const Register = () => {
         photoURL: photo,
       })
       .then(() => {
+        setLoad(true);
         console.log('user profile updated');
         setError('');
       })

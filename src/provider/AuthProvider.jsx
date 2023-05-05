@@ -5,6 +5,7 @@ import app from '../firebase/firebase.config';
 const auth = getAuth(app);
 export const UserContext = createContext(null);
 const AuthProvider = ({children}) => {
+    const [load, setLoad] = useState(false);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -44,7 +45,7 @@ const AuthProvider = ({children}) => {
         return () =>{
             return unsubscibe();
         }
-    },[]);
+    },[load]);
 
     const UserInfo = {
         user,
@@ -53,7 +54,8 @@ const AuthProvider = ({children}) => {
         logOut,
         googleSignIn,
         githubSignIn,
-        loading
+        loading, 
+        setLoad,
     }
     return (
         <UserContext.Provider value={UserInfo}>
