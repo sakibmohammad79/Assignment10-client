@@ -28,8 +28,7 @@ const RecipeDetails = () => {
     setDisabled3(true);
   };
   const RecipeDetails = useLoaderData();
-  const {picture,name,about,like,yearOfExperience,recipeTypes1,recipeTypes2,recipeTypes3,
-  } = RecipeDetails;
+  const {picture,name,about,like,yearOfExperience,recipeTypes1,recipeTypes2,recipeTypes3, numberOfRecife} = RecipeDetails;
   return (
     <Container>
         <ToastContainer></ToastContainer>
@@ -37,24 +36,28 @@ const RecipeDetails = () => {
         <div style={{ boxShadow: "2px 2px 4px #888888" }} className="bg-dark rounded row align-items-center my-5 ">
           <div className="p-3 col-12 col-md-6">
             <h1 className="text-white">Hi, Discuss More!</h1>
-            <h3 className="mb-1 mt-3">
+            <h4 className="mb-2 mt-3">
               <span className="text-warning fw-bolder">My name is:</span>{" "}
               <span className="fw-bold text-white fs-5">{name}</span>
-            </h3>
-            <h3 className="mb-1">
+            </h4>
+            <h4 className="mb-2">
               <span className="text-warning  fw-bolder">About Me:</span>{" "}
               <span className="fw-bold text-white fs-5">{about}</span>
-            </h3>
-            <h3 className="mb-1">
+            </h4>
+            <h4 className="mb-2">
               <span className="text-warning  fw-bolder">My Experience:</span>{" "}
               <span className="fw-bold text-white fs-5">
                 {yearOfExperience} Years
               </span>
-            </h3>
-            <h3 className="mb-1">
+            </h4>
+            <h4 className="mb-2">
+              <span className="text-warning  fw-bolder">Recipe Types:</span>{" "}
+              <span className="fw-bold text-white fs-5">{numberOfRecife} Type</span>
+            </h4>
+            <h4 className="mb-1">
               <span className="text-warning  fw-bolder">People Likes:</span>{" "}
               <span className="fw-bold text-white fs-5">{like}k</span>
-            </h3>
+            </h4>
 
              <div className=" mt-4 ">
               <Link className="text-white"><FaFacebook style={{height: '1.8rem', width: '2rem'}}></FaFacebook></Link>
