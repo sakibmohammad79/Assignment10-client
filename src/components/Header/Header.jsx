@@ -3,7 +3,6 @@ import { Container, Image, Nav, Navbar } from "react-bootstrap";
 import logo from '../../assets/logo.svg'
 import { Link, NavLink} from "react-router-dom";
 import { UserContext } from "../../provider/AuthProvider";
-import { FaUser } from "react-icons/fa";
 import image from '../../assets/close-up-portrait-curly-handsome-european-male.jpg'
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';

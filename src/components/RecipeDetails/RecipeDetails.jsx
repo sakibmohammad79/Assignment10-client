@@ -6,7 +6,7 @@ import "@smastrom/react-rating/style.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { FaBeer, FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 
 
@@ -55,11 +55,11 @@ const RecipeDetails = () => {
               <span className="text-warning  fw-bolder">People Likes:</span>{" "}
               <span className="fw-bold text-white fs-5">{like}k</span>
             </h3>
+
              <div className=" mt-4 ">
               <Link className="text-white"><FaFacebook style={{height: '1.8rem', width: '2rem'}}></FaFacebook></Link>
               <Link className="text-white px-3"><FaTwitter style={{height: '1.8rem', width: '2rem'}}></FaTwitter></Link>
               <Link className="text-white"><FaInstagram style={{height: '1.8rem', width: '2rem'}}></FaInstagram></Link>
-              
              </div>
       
           </div>

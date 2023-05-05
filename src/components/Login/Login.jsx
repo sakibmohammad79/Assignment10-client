@@ -76,8 +76,8 @@ const Login = () => {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+        <Form.Group className=" mb-3" controlId="formBasicPassword">
+          <Form.Label >Password</Form.Label>
           <Form.Control
             type="password"
             name="password"
@@ -100,7 +100,7 @@ const Login = () => {
           </Form.Text>
         </p>
         <p className=" fw-bold text-center">
-          <small>OR</small>
+          <small className="">OR</small>
         </p>
         <div className="text-center mt-0 mb-2">
           <Button
